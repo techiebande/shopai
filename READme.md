@@ -31,3 +31,160 @@ The Nigerian founder can exploit the "RAG Efficiency" (Retrieval-Augmented Gener
 - Build complexity: Low — Standard RAG implementation using LangChain or Vercel AI SDK.
 - Nigerian executability: Confirmed executable; e-commerce tools are historically high-performers for remote solo founders.
 - One risk to the math: If the user has an extremely large product catalog (e.g., 50,000+ SKUs), the initial "indexing" cost could spike LLM usage for a single month.
+
+
+{
+  "env": {
+    "NVIDIA_API_KEY": "YOUR_NVIDIA_API_KEY_HERE"
+  },
+  "modelProviders": {
+    "openai": [
+      {
+        "id": "minimaxai/minimax-m2.7",
+        "name": "NVIDIA MiniMax M2.7",
+        "description": "MiniMax M2.7 via NVIDIA API",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 1,
+          "top_p": 0.95,
+          "max_tokens": 8192
+        }
+      },
+      {
+        "id": "qwen/qwen3.5-397b-a17b",
+        "name": "NVIDIA Qwen3.5 397B",
+        "description": "Qwen3.5 397B via NVIDIA API with thinking enabled",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 0.6,
+          "top_p": 0.95,
+          "top_k": 20,
+          "max_tokens": 16384,
+          "presence_penalty": 0,
+          "repetition_penalty": 1
+        },
+        "chatTemplateOptions": {
+          "enable_thinking": true
+        }
+      },
+      {
+        "id": "qwen/qwen3-next-80b-a3b-instruct",
+        "name": "NVIDIA Qwen3 Next 80B A3B Instruct",
+        "description": "Qwen3 Next 80B A3B Instruct via NVIDIA API",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 0.6,
+          "top_p": 0.7,
+          "max_tokens": 4096
+        }
+      },
+      {
+        "id": "moonshotai/kimi-k2-instruct",
+        "name": "NVIDIA Kimi K2 Instruct",
+        "description": "Moonshot AI Kimi K2 Instruct via NVIDIA API",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 0.6,
+          "top_p": 0.9,
+          "max_tokens": 4096
+        }
+      },
+      {
+        "id": "deepseek-ai/deepseek-v3.1-terminus",
+        "name": "NVIDIA DeepSeek V3.1 Terminus",
+        "description": "DeepSeek V3.1 Terminus via NVIDIA API with thinking enabled",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 0.2,
+          "top_p": 0.7,
+          "max_tokens": 8192
+        },
+        "chatTemplateOptions": {
+          "thinking": true
+        }
+      },
+      {
+        "id": "mistralai/devstral-2-123b-instruct-2512",
+        "name": "NVIDIA Devstral 2 123B Instruct",
+        "description": "Mistral Devstral 2 123B Instruct via NVIDIA API",
+        "envKey": "NVIDIA_API_KEY",
+        "baseUrl": "https://integrate.api.nvidia.com/v1",
+        "generationConfig": {
+          "temperature": 0.15,
+          "top_p": 0.95,
+          "max_tokens": 8192,
+          "seed": 42
+        }
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Bash(tail *)",
+      "Bash(ps *)",
+      "Bash(grep *)",
+      "Bash(echo *)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_click",
+      "Bash(pnpm exec *)",
+      "Bash(cat *)",
+      "Bash(ls *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "WebSearch",
+      "WebFetch(www.grizzlypeaksoftware.com)",
+      "WebFetch(ranksquire.com)",
+      "WebFetch(vercel.com)",
+      "WebFetch(blog.premai.io)",
+      "WebFetch(www.vectra.ai)",
+      "WebFetch(arxiv.org)",
+      "WebFetch(qdrant.tech)",
+      "WebFetch(signoz.io)",
+      "WebFetch(www.icertglobal.com)",
+      "WebFetch(www.aifreeapi.com)",
+      "WebFetch(mbrenndoerfer.com)",
+      "WebFetch(medium.com)",
+      "WebFetch(www.teamday.ai)",
+      "WebFetch(theplanettools.ai)",
+      "WebFetch(aitestingguide.com)",
+      "WebFetch(www.reddit.com)",
+      "WebFetch(huggingface.co)",
+      "WebFetch(langfuse.com)",
+      "Bash(pnpm add *)",
+      "Bash(pnpm *)",
+      "Bash(sleep *)",
+      "Bash(kill *)",
+      "Bash(true)",
+      "Bash(npx *)",
+      "Bash(lsof *)",
+      "Bash(xargs *)",
+      "Bash(node *)",
+      "WebFetch(ncapi.digitalbang.ma)",
+      "Bash(pip3 *)",
+      "Bash(source *)",
+      "Bash(pip list)",
+      "Bash(pip install *)",
+      "Bash(python *)",
+      "Bash(timeout *)",
+      "Bash(gtimeout *)",
+      "Bash(then)",
+      "Bash(fi)",
+      "Bash(pkill *)",
+      "WebFetch(qwenlm.github.io)"
+    ]
+  },
+  "$version": 3,
+  "model": {
+    "name": "mistralai/devstral-2-123b-instruct-2512"
+  },
+  "security": {
+    "auth": {
+      "selectedType": "openai"
+    }
+  }
+}
